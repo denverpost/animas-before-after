@@ -9,7 +9,9 @@
 		#mapoverlaytitle h2 { margin:0; font-family:Arial,Helvetica,sans-serif;color:#222;font-size:18px;line-height:18px; }
 		#mapoverlayimage { border: 6px solid #ccc; width: 500px; height: 370px; margin-top:24px;clear:both; }
 		#mapoverlayimage, #container { margin: 0 auto; }	
-		#mapoverlayimage, div#container { text-align: center; font-family: Arial, Helvetica, sans-serif;}	
+		#mapoverlayimage, div#container { text-align: center; font-family: Arial, Helvetica, sans-serif;}
+		#mapimagecredit {     text-transform: uppercase; font-family: Helvetica, Arial, sans-serif !important; font-weight: normal; text-transform: uppercase; font-size: 9px; letter-spacing: 1px; font-style: normal; color: rgba(0,0,0,0.7); width: 500px; text-align: right; margin: 3px 16px 4px; }
+		#mapoverlaydate p, #mapoverlaydateorig p { margin:4px 0; }
 	</style>
 	
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
@@ -121,25 +123,27 @@
 </head> 
 <body>
 
-	<div id="mapwrapp" style="width:654px;height:530px">
+	<div id="mapwrapp" style="width:654px;height:540px">
  
  		<div id="map" style="top:0px; left: 0px; width: 100%; height: 100%;"></div>
     	
-    	<div id="mapoverlay" style="position:absolute; top:28px; left:60px; width:535px; height:460px; border:1px solid #888; box-shadow: 8px 8px 12px #666; z-index:7869684;background:#fff;display:none;">
+    	<div id="mapoverlay" style="position:absolute; top:28px; left:40px; width:575px; height:476px; border:1px solid #888; box-shadow: 4px 4px 8px #444; z-index:7869684;background:#fff;display:none;">
     		
     		<div id="overlaytop" style="width:100%;height:28px;margin-top:4px;display:block;clear:both;">
     		
-    			<div id="mapoverlaytitle" style="width:475px;height:20px;margin:10px 4px 4px 24px;float:left;text-align:center;"></div>
+    			<div id="mapoverlaytitle" style="width:475px;height:20px;margin:10px 4px 4px 44px;float:left;text-align:center;"></div>
     			
     			<div id="mapoverlayclosebtn" style="cursor:pointer;display:block;height:20px;width:20px;margin:4px 6px 4px 2px;font-style:bold;font-size:28px;line-height:20px;font-family:Arial,sans-serif;color:#aaa;float:right;">x</div>
 
     		</div>
     		
 			<div id="mapoverlayimage"></div>
-			
-			<div id="mapoverlaydateorig" style="display:block;height:14px;width:220px;margin:0 14px 4px;font-style:normal;font-size:14px;line-height:14px;font-family:Arial,sans-serif;color:#888;text-align:left;float:left;"></div>
 
-			<div id="mapoverlaydate" style="display:block;height:14px;width:220px;margin:0 14px 4px;font-style:normal;font-size:14px;line-height:14px;font-family:Arial,sans-serif;color:#888;text-align:right;float:right;"></div>
+			<div id="mapimagecredit">Imagery by DigitalGlobe, via Google Earth</div>
+			
+			<div id="mapoverlaydateorig" style="display:block;height:14px;width:220px;margin:0 0 4px 30px;font-style:normal;font-size:14px;line-height:14px;font-family:Arial,sans-serif;color:#888;text-align:left;float:left;"></div>
+
+			<div id="mapoverlaydate" style="display:block;height:14px;width:220px;margin:0 30px 4px 0;font-style:normal;font-size:14px;line-height:14px;font-family:Arial,sans-serif;color:#888;text-align:right;float:right;"></div>
 
     	</div>
 
