@@ -7,7 +7,7 @@
 	<style type="text/css">
 		body { margin:0!important; }
 		#mapoverlaytitle h2 { margin:0; font-family:Arial,Helvetica,sans-serif;color:#222;font-size:18px;line-height:18px; }
-		#mapoverlayimage { border: 6px solid #ccc; width: 700px; height: 410px; margin-top:24px;clear:both; }
+		#mapoverlayimage { border: 6px solid #ccc; width: 500px; height: 370px; margin-top:24px;clear:both; }
 		#mapoverlayimage, #container { margin: 0 auto; }	
 		#mapoverlayimage, div#container { text-align: center; font-family: Arial, Helvetica, sans-serif;}	
 	</style>
@@ -19,16 +19,17 @@
 
 	<script type="text/javascript">
 	
-	function openOverlayWindows(overlayTitle, overlayNum, overlayDate) {
+	function openOverlayWindows(overlayTitle, overlayNum, overlayDate, overlayDateOrig) {
 		var newoverlayhtml = '<div id="container">\n\
-		<div><img alt="before" src="./images/' + overlayNum + '-before.jpg" width="700" height="410" /></div> \n\
-		<div><img alt="after" src="./images/' + overlayNum + '-after.jpg" width="700" height="410" /></div> \n\
+		<div><img alt="before" src="./images/' + overlayNum + '-before.jpg" width="500" height="370" /></div> \n\
+		<div><img alt="after" src="./images/' + overlayNum + '-after.jpg" width="500" height="370" /></div> \n\
 		</div>';
 		
 		$('#mapoverlay').css('display', 'block');
 		$('#mapoverlaytitle').html('<h2>' + overlayTitle + '</h2>');
 		$('#mapoverlayimage').html(newoverlayhtml);
 		$('#mapoverlaydate').html('<p>' + overlayDate + '</p>');
+		$('#mapoverlaydateorig').html('<p>' + overlayDateOrig + '</p>');
 		$('#container').beforeAfter({
 			animateIntro : true,
 				introDelay : 720,
@@ -99,7 +100,7 @@
 	
 			google.maps.event.addListener(marker, 'click', (function(marker, i) {
 				return function() {
-					openOverlayWindows(gmaplocations[i][0], gmaplocations[i][3], gmaplocations[i][4]);
+					openOverlayWindows(gmaplocations[i][0], gmaplocations[i][3], gmaplocations[i][4], gmaplocations[i][5]);
 				}
 			})(marker, i));
 			
@@ -120,15 +121,15 @@
 </head> 
 <body>
 
-	<div id="mapwrapp" style="width:960px;height:580px">
+	<div id="mapwrapp" style="width:654px;height:530px">
  
  		<div id="map" style="top:0px; left: 0px; width: 100%; height: 100%;"></div>
     	
-    	<div id="mapoverlay" style="position:absolute; top:28px; left:60px; width:835px; height:510px; border:1px solid #888; box-shadow: 8px 8px 12px #666; z-index:7869684;background:#fff;display:none;">
+    	<div id="mapoverlay" style="position:absolute; top:28px; left:60px; width:535px; height:460px; border:1px solid #888; box-shadow: 8px 8px 12px #666; z-index:7869684;background:#fff;display:none;">
     		
     		<div id="overlaytop" style="width:100%;height:28px;margin-top:4px;display:block;clear:both;">
     		
-    			<div id="mapoverlaytitle" style="width:775px;height:20px;margin:10px 4px 4px 24px;float:left;text-align:center;"></div>
+    			<div id="mapoverlaytitle" style="width:475px;height:20px;margin:10px 4px 4px 24px;float:left;text-align:center;"></div>
     			
     			<div id="mapoverlayclosebtn" style="cursor:pointer;display:block;height:20px;width:20px;margin:4px 6px 4px 2px;font-style:bold;font-size:28px;line-height:20px;font-family:Arial,sans-serif;color:#aaa;float:right;">x</div>
 
@@ -136,7 +137,9 @@
     		
 			<div id="mapoverlayimage"></div>
 			
-			<div id="mapoverlaydate" style="display:block;height:14px;width:835px;margin:6px 4px 4px;font-style:normal;font-size:14px;line-height:14px;font-family:Arial,sans-serif;color:#888;text-align:center;"></div>
+			<div id="mapoverlaydateorig" style="display:block;height:14px;width:220px;margin:0 14px 4px;font-style:normal;font-size:14px;line-height:14px;font-family:Arial,sans-serif;color:#888;text-align:left;float:left;"></div>
+
+			<div id="mapoverlaydate" style="display:block;height:14px;width:220px;margin:0 14px 4px;font-style:normal;font-size:14px;line-height:14px;font-family:Arial,sans-serif;color:#888;text-align:right;float:right;"></div>
 
     	</div>
 
@@ -144,9 +147,9 @@
     
     <script type="text/javascript">
         var maplocations = [
-            ['37th Street near Riverside in Evans',40.3775626,-104.6837086,'01','Sept. 16, 2013'],
-			['Trailer park near 37th Street, Evans',40.3755626,-104.6817086,'02','Sept. 16, 2013'],
-			['Auto junk yeard near 37th Street, Evans',40.3759626,-104.6761086,'03','Sept. 16, 2013']
+            ['North of Durango, Colorado',37.328128,-107.843347,'01','Aug. 14, 2015','June 2014'],
+			['South of Hermosa, Colorado',37.345653,-107.850846,'02','Aug. 14, 2015','June 2014'],
+			['Silverton, Colorado',37.817041,-107.661559,'03','Aug. 14, 2015','June 2014']
 			];
         drawGoogleLocationMap(maplocations);
 	</script>
